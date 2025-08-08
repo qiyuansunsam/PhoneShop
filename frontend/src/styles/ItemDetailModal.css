@@ -1,0 +1,464 @@
+/* ======================================== */
+/* ItemDetailModal Styles                 */
+/* ======================================== */
+
+/* --- Base Modal Layout --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1001;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  max-width: 950px;
+  width: 90%;
+  max-height: 90vh;
+  padding: 35px 65px 35px 45px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Scrollbar --- */
+.modal-content {
+  scrollbar-width: thin;
+  scrollbar-color: #a0a0a0 #e4e4e4;
+}
+.modal-content::-webkit-scrollbar {
+  width: 9px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: #e4e4e4;
+  border-radius: 5px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+  border: 2px solid #e4e4e4;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #707070;
+}
+
+/* --- Close Button --- */
+.modal-close-button {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 1002;
+}
+.modal-close-button:hover {
+  color: #222;
+}
+
+/* --- Loading / Error States --- */
+.modal-loading,
+.modal-error {
+    text-align: center;
+    padding: 60px 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+.modal-error p.error-message { /* More specific selector for the error message text */
+    margin-bottom: 20px;
+    color: #721c24; /* Match persistent error color */
+    background-color: transparent; /* Ensure no extra background */
+    border: none; /* Ensure no extra border */
+    padding: 0; /* Reset padding */
+}
+.modal-error button {
+    /* Uses general button styles */
+}
+
+/* Persistent Error Message */
+.modal-error-persistent {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 12px 18px;
+  border-radius: 4px;
+  margin: -15px 0 20px 0; /* Adjust if needed */
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+
+/* --- Top Section: Image + Details/Actions --- */
+.item-main-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.item-image-container {
+  flex: 1 1 45%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+.item-image-large {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.item-details-and-actions-wrapper {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.item-details h1 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 4vw, 2.1rem);
+  line-height: 1.2;
+  color: #111;
+  text-align: left;
+}
+.item-details p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #444;
+  text-align: left;
+}
+.item-details strong {
+  color: #111;
+  margin-right: 5px;
+}
+
+/* --- Item Actions --- */
+.item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Quantity Input Section */
+.quantity-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.quantity-input-container label {
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+.quantity-input {
+  width: 60px;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 1rem;
+}
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/* --- Separator --- */
+.modal-content hr.section-separator {
+  border: 0;
+  height: 1px;
+  background-color: #d8d8d8;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/* --- Reviews Section --- */
+.item-reviews-section h2,
+.add-review-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #222;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.review-item {
+  border: 1px solid #e0e0e0;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-family: sans-serif;
+  text-align: left;
+
+}
+.review-item--hidden {
+  opacity: 0.7;
+  background-color: #f8f8f8;
+  border-style: dashed;
+}
+.review-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.review-item__info {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+.review-item__name {
+  margin: 0 0 5px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+}
+.review-item__rating {
+  display: block;
+  line-height: 1;
+}
+.review-stars {
+    color: #f5c518;
+    font-size: 1.1em;
+}
+.review-item__comment {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+.review-item__toggle {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.review-item__toggle:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+/* Show More Reviews Button */
+.show-more-reviews-btn {
+    display: block;
+    margin: 20px auto 10px auto;
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #495057;
+}
+.show-more-reviews-btn:hover {
+    background-color: #dee2e6;
+    border-color: #adb5bd;
+    color: #343a40;
+}
+
+
+/* --- Add Review Section --- */
+.add-review-container {
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  background-color: #ffffff;
+  padding: 25px 30px;
+  margin-top: 20px;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.08);
+}
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+}
+.add-review-form .form-group {
+  margin-bottom: 15px;
+}
+.add-review-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}
+.add-review-form select,
+.add-review-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.add-review-form select:focus,
+.add-review-form textarea:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.add-review-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.add-review-form small {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 4px;
+}
+.add-review-form button[type="submit"] {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* Logged-out Prompt */
+.add-review-login-prompt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 15px;
+  color: #555;
+  min-height: 150px;
+}
+.add-review-login-prompt p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* --- General Button Styles --- */
+.modal-content button:not(.modal-close-button):not(.link-button):not(.review-item__toggle),
+.modal-content .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  user-select: none;
+  /* Default: Primary */
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* General Button Hover */
+.modal-content button:not(.modal-close-button):not(.link-button):not(.review-item__toggle):not(:disabled):hover,
+.modal-content .button:not(:disabled):hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  color: white;
+  text-decoration: none;
+}
+
+/* General Button Disabled State */
+.modal-content button:disabled,
+.modal-content .button:disabled {
+  background-color: #b8b8b8; /* Grey background */
+  border-color: #b8b8b8; /* Matching border */
+  color: #f0f0f0; /* Lighter text */
+  cursor: not-allowed; /* Indicate non-interactive */
+  opacity: 0.65; /* Standard disabled opacity */
+}
+
+/* Optional: Specific style for the wishlisted button if needed beyond :disabled */
+/* Use this if you need a look distinct from other disabled buttons */
+/*
+.modal-content button.button-wishlisted {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  color: #6c757d;
+}
+.modal-content button.button-wishlisted:hover {
+  background-color: #e9ecef; // Prevent hover effect
+  border-color: #ced4da;
+  color: #6c757d;
+}
+*/
+
+
+/* Secondary Button Style */
+.button-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+.button-secondary:not(:disabled):hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Link Button Style */
+.link-button {
+  background: none;
+  border: none;
+  padding: 0 3px;
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+  vertical-align: baseline;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.link-button:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Confirm Button Style */
+.button-confirm {
+    /* Uses primary styles by default */
+}
