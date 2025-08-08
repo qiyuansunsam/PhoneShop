@@ -1,0 +1,114 @@
+/* Styles for /home/epsilon/uni/web/TUT12-G1/frontend/src/styles/sidebar.css */
+
+.sidebar__item {
+  display: flex; /* Ensures the Row takes up the full width if not already */
+  align-items: center; /* Vertically align items if Row's align="middle" wasn't enough or for nested flex */
+  padding: 12px 0; /* Add some vertical padding between items */
+  border-bottom: 1px solid #f0f0f0; /* Separator line */
+  display: flex;
+  align-items: center;
+  padding: 12px; /* Changed from 12px 0 to have padding on all sides */
+  border: 1px solid #e8e8e8; /* Changed from border-bottom to a full border */
+  border-radius: 6px; /* Added for rounded corners */
+  margin-bottom: 12px; /* Added to create space between boxed items */
+  width: 100%; /* Ensure it spans the full width of the drawer body */
+  background-color: #fff; /* Optional: gives a solid background to the box */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Optional: adds a subtle shadow for depth */
+}
+
+.sidebar__item:last-child {
+  border-bottom: none; /* No border for the last item */
+  margin-bottom: 0; /* No margin for the last item to avoid extra space at the bottom */
+}
+/* AntD Image component usually handles its own sizing well with width/height props.
+   This class is here if you need to override or add specific styles. */
+.sidebar__item-image {
+  align-items: left;
+}
+
+.sidebar__item-details {
+  display: flex;
+  flex-direction: column; /* Stack title, price, quantity vertically */
+  margin-left: 8px; /* A little space between image and text, though Col gutter might handle this */
+  overflow: hidden;
+}
+
+.sidebar__item-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap; /* Prevent title from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ... for overflowed text */
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.sidebar__item-price {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.sidebar__item-quantity {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.sidebar__item-remove .anticon-delete { /* Target the icon within the AntButton */
+  font-size: 16px; /* Adjust icon size */
+  color: #ff4d4f; /* Ant Design's danger color */
+}
+
+.sidebar__item-remove:hover .anticon-delete {
+  color: #d9363e; /* Darker shade on hover */
+}
+
+/* Styles for the quantity input in wishlist items (from other parts of your Sidebar.js) */
+.sidebar__item-quantity-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.sidebar__item-quantity-input {
+  width: 60px !important; /* AntD InputNumber might need !important for width */
+  margin-right: 5px;
+}
+
+.sidebar__item-confirm-button,
+.sidebar__item-cancel-button {
+  padding: 0 5px !important; /* Reduce padding for compact icon buttons */
+  min-width: auto !important; /* Allow button to shrink to icon size */
+}
+
+.sidebar__item-confirm-button .anticon,
+.sidebar__item-cancel-button .anticon {
+  font-size: 14px; /* Adjust icon size */
+}
+
+.sidebar__wishlist-add-to-cart {
+  margin-top: 6px;
+  padding: 2px 8px !important; /* Adjust padding for small button */
+  font-size: 0.75rem !important; /* Adjust font size for small button */
+  height: auto !important; /* Adjust height for small button */
+}
+
+/* General sidebar messages */
+.sidebar__empty-message,
+.sidebar__loading-message,
+.sidebar__error-message {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+.sidebar__total {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.sidebar__checkout-button {
+  width: 100%; /* Make checkout button full width */
+}
+

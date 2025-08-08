@@ -1,0 +1,233 @@
+/* General Page Layout */
+.checkout-container {
+    padding: 20px;
+    max-width: 900px; /* Optional: Limit content width on large screens */
+    margin: 0 auto; /* Center the container */
+    font-family: 'Arial', sans-serif; /* Example font */
+}
+
+/* Back Button */
+.button-back-icon-only {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-flex; /* Align icon vertically */
+    align-items: center;
+    color: #333; /* Default icon color */
+    transition: color 0.3s ease;
+}
+
+.button-back-icon-only:hover {
+    color: #007bff; /* Hover color */
+}
+
+.button-back-icon-only .icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor; /* Use the button's text color for stroke */
+}
+
+/* Page Title */
+.checkout-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center; /* Center the title */
+    color: #333;
+}
+
+/* Separator */
+.checkout-hr {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+/* Main Content Card */
+.checkout-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* Increase bottom padding */
+    padding: 20px 20px 40px 20px; /* Example: 20px top/right/left, 40px bottom */
+    /* Or shorthand if padding is uniform except bottom: */
+    /* padding: 20px 20px 40px; */
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* If you ever add overflow: hidden here, this padding is crucial */
+}
+
+/* Empty Cart Message */
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    padding: 40px 20px;
+}
+
+/* Cart Items List */
+.cart-items-list {
+    /* Ant Design Row provides internal spacing with gutter */
+    /* Add border or separation between items if desired */
+}
+
+/* Individual Cart Item */
+.cart-item {
+    /* Ant Design Row handles display: flex */
+    align-items: center; /* Vertically align items in the row */
+    padding: 15px 0; /* Vertical padding */
+    border-bottom: 1px solid #eee; /* Separator between items */
+}
+
+.cart-items-list .cart-item:last-child {
+    border-bottom: none; /* No border after the last item */
+}
+
+/* Cart Item Image */
+.cart-item-image {
+    border-radius: 4px;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    /* Antd Image width="100%" makes it responsive within its column */
+}
+
+/* Cart Item Text Content */
+.cart-item-text-content {
+    padding-left: 15px; /* Space between image column and text column */
+}
+
+.cart-item-text-content h3.cart-item-title {
+    margin-top: 0; /* Remove default h3 top margin */
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-item-text-content p {
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: #007bff; /* Highlight price */
+}
+
+.cart-item-stock {
+   font-size: 0.9em;
+   color: #888;
+}
+
+
+/* Cart Item Actions (Quantity and Remove) */
+.cart-item-actions {
+    display: flex;
+    flex-direction: column; /* Stack on small screens */
+    align-items: flex-start; /* Align items to the start on small screens */
+    gap: 10px; /* Space between quantity control and remove button */
+    padding-top: 10px; /* Add some padding above actions on small screens */
+}
+
+/* On medium+ screens (where actions are in their own column) */
+@media (min-width: 768px) { /* Corresponds to Ant Design 'md' breakpoint */
+   .cart-item-actions {
+        flex-direction: row; /* Arrange in a row */
+        justify-content: flex-end; /* Push actions to the right */
+        align-items: center; /* Vertically center in the row */
+        padding-top: 0; /* Remove top padding */
+   }
+}
+
+/* Quantity Control */
+.quantity-control {
+    /* Antd InputNumber has its own styling */
+}
+
+/* Style the Ant Design InputNumber */
+.cart-item-quantity-input.ant-input-number {
+    width: 80px; /* Set a specific width for the input */
+    text-align: center; /* Center the text inside the input */
+}
+
+/* Remove Button (Ant Design type="link" danger) */
+.cart-item-remove-button.ant-btn-link.ant-btn-dangerous {
+     padding: 0; /* Remove default button padding */
+     height: auto; /* Allow height to be determined by content */
+     display: inline-flex; /* Align icon and text */
+     align-items: center;
+     color: #ff4d4f; /* Antd danger color */
+     transition: color 0.3s ease;
+}
+.cart-item-remove-button.ant-btn-link.ant-btn-dangerous:hover {
+    color: #ff7875; /* Lighter danger color on hover */
+}
+
+.cart-item-remove-button .icon {
+    width: 16px; /* Smaller icon */
+    height: 16px;
+    margin-right: 4px; /* Space between icon and text */
+    stroke: currentColor; /* Use the button's text color */
+}
+
+.cart-item-remove-button .remove-text {
+    font-size: 0.9em;
+    /* Additional text styling if needed */
+}
+
+
+/* Order Summary Section */
+.order-summary-section {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    /* text-align: right; /* Removed */
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space above the button */
+    color: #333;
+}
+.order-total-label {
+    /* No specific style needed if justified */
+}
+
+.order-total-value {
+    color: #007bff; /* Highlight the total value */
+}
+
+/* Confirm Button */
+.button-confirm.ant-btn {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    height: auto; /* Ensure height is not fixed */
+}
+
+/* Center confirm button on wider screens */
+@media (min-width: 576px) {
+    .button-confirm.ant-btn {
+        width: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* Accessibility: Visually hide element but keep for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

@@ -1,0 +1,140 @@
+.page-section {
+    margin-bottom: 30px;
+    padding: 20px; /* Combined from duplicate rule */
+}
+
+.content-box {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-left: 1em;
+    margin-right: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+  hr.section-separator {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+.error-message { /* Kept defensively, might be used conditionally */
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.search-results-header {
+    display: flex;
+    justify-content: space-between; /* This was present in one version */
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    /* Note: Second instance of .search-results-header removed as styles are covered */
+}
+
+.search-results-header h2 {
+    margin: 0;
+}
+
+.search-layout-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.search-filters-sidebar {
+    flex: 0 0 220px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    height: fit-content;
+}
+
+.search-filters-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 5px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.filter-group select,
+.filter-group input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+.filter-group input[type="range"] {
+    padding: 0;
+    cursor: pointer;
+}
+
+.filter-group select:disabled,
+.filter-group input[type="range"]:disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.price-range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 4px;
+}
+
+
+.search-results-area {
+    flex-grow: 1;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .search-layout-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .search-filters-sidebar {
+        flex: 0 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-results-area .phone-list {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}

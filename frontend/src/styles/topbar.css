@@ -1,0 +1,167 @@
+/* styles/topbar.css */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  height: 65px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900; /* Ensure it's above page content but potentially below other modals */
+  box-sizing: border-box;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-bar__title {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.top-bar__middle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.top-bar__search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.top-bar__search-input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #333;
+  border: none; /* No border */
+  background-color: transparent; /* << Transparent background */
+  outline: none;
+  border-radius: 18px; /* Keep radius if desired */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added box-shadow transition */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+   border-bottom: 1px solid transparent; /* Add transparent bottom border */
+}
+
+.top-bar__search-input:hover {
+  background-color: #f8f8f8; /* Subtle background on hover */
+}
+.top-bar__search-input:focus {
+  background-color: #f8f8f8;
+  border-bottom-color: #ccc; /* Show bottom border only on focus */
+  /* box-shadow: 0 0 0 2px rgba(0,123,255,.25); Optional focus ring */
+}
+
+.top-bar__search-input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+.top-bar__search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+/* --- End Search Bar Styles --- */
+
+
+.top-bar__actions {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  /* gap: 10px; << Removed gap */
+  flex-shrink: 0;
+}
+
+/* Style for Text Links (Register/Sign In) */
+.top-bar__link {
+  color: #444;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 32px; /* << Even wider padding */
+  text-align: center;
+  border-radius: 4px;
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.top-bar__link:hover {
+  color: #111;
+  background-color: #e9ecef;
+  text-decoration: none;
+}
+
+/* Style for Separator */
+.top-bar__separator {
+  color: #d0d0d0; /* Keep color for fallback, but use background */
+  align-self: stretch;
+  margin: 12px 10px; /* More vertical margin, adjust horizontal spacing */
+  width: 1px;
+  background-color: #e0e0e0;
+  display: inline-block;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+/* Removed --icons specific separator style */
+
+
+/* Style for Text Buttons (Wishlist, Cart) */
+.top-bar__text-button {
+  background: none;
+  border: none;
+  padding: 8px 32px; /* << Even wider padding */
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.top-bar__text-button:hover {
+  color: #111;
+  background-color: #e9ecef;
+}
+.top-bar__text-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: transparent !important;
+}
+.top-bar__text-button--active,
+.top-bar__text-button--active:hover {
+  background-color: #d3d9df;
+  color: #000;
+}
+
+/* Item Count Badge */
+/* ... (keep badge styles as before) ... */
+.top-bar__item-count {
+  margin-left: 8px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 10px;
+  padding: 1px 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.2;
+  min-width: 18px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.top-bar__wishlist-count { background-color: #6c757d; }
+.top-bar__item-count--loading { background-color: #ffc107; color: #333; min-width: 22px; }
